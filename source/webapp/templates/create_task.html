@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создать задачу</title>
+</head>
+
+<body>
+<h1>Создать задачу</h1>
+
+<form action="/articles/add/" method="post">
+    {% csrf_token %}
+    <label>Описание:</label><br/>
+    <input type="text" name="description"/><br/>
+    <label>Text:</label><br/>
+    <select name="status" id="">
+    {% for status in status_choices %}
+        <option value="{{ status.0 }}">{{ status.1 }}</option>
+    {% endfor %}
+    </select><br/>
+    <label>Дата:</label><br/>
+    <input type="date" name="Date"/><br/>
+    <br/>
+    <input type="submit" value="Send"/>
+</form>
+<a href="/">Создать</a>
+</body>
+</html>
